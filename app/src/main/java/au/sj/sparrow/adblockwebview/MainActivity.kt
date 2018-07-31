@@ -2,8 +2,8 @@ package au.sj.sparrow.adblockwebview
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.webkit.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setWebView()
+
+        buttonGo.setOnClickListener { webView.loadUrl(urlEditText.text.toString()) }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.javaScriptCanOpenWindowsAutomatically = true
         webView.loadUrl("https://www.google.com")
+//        webView.loadUrl("https://www.google.com/amp/s/www.macrumors.com/2017/05/22/scrolling-changes-coming-to-mobile-safari/amp/")
 //        webView.loadUrl("https://pi-hole.net/pages-to-test-ad-blocking-performance/")
     }
 
